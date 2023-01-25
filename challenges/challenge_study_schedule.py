@@ -8,18 +8,13 @@
 def study_schedule(permanence_period, target_time):
     """Faça o código aqui."""
 
-    if not target_time:
+    if type(target_time) != int:
         return None
     contador = 0
     for a, b in permanence_period:
-        if not (isinstance(a, int) and isinstance(b, int)):
+        try:
+            if a <= target_time <= b:
+                contador += 1
+        except TypeError:
             return None
-        if a > b:
-            return None
-        if a <= target_time <= b:
-            contador += 1
     return contador
-
-
-#    if not (isinstance(x, int) and isinstance(y, int)):
-#       raise ValueError("Both x and y must be integers.")
