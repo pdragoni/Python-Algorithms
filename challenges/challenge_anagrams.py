@@ -12,5 +12,21 @@ def sort_string(string):
 
 
 def is_anagram(first_string, second_string):
-    """Faça o código aqui."""
-    raise NotImplementedError
+    # inicializa a variável anagram como False
+    anagram = False
+
+    # Passa as strings para caracteres minúsculos e para a função de sort
+    lowered_first = first_string.lower()
+    sorted_first = sort_string(lowered_first)
+
+    lowered_second = second_string.lower()
+    sorted_second = sort_string(lowered_second)
+
+    # A validação da igualdade entre as strings ordenadas é atribuída a anagram
+    anagram = sorted_first == sorted_second
+
+    # Se uma das strings for vazia, não tem como ser um anagrama
+    if sorted_first == "" or sorted_second == "":
+        anagram = False
+
+    return (sorted_first, sorted_second, anagram)
